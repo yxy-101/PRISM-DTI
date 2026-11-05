@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.ipynb_checkpoints/
+outputs/
+logs/
+data/raw/
+data/processed/
+data/features/
+data/confounder/
+*.pt
+*.pth
+*.ckpt
+*.zip
+*.tar.gz
+
+# Compressed benchmark inputs are intentionally distributed.
+!data/raw/
+!data/raw/**/
+!data/raw/**/*.csv.gz
+!data/processed/
+!data/processed/*.csv.gz
+data/processed/*.csv
+data/raw/**/*.csv
