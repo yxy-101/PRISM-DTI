@@ -1,0 +1,74 @@
+[
+  {
+    "path": "data/processed/bindingdb_train.csv",
+    "sha256": "c3a0b1b8d8020effe2a5558bcaf1f913dbc6f214e26cad92a6213898f79c3024"
+  },
+  {
+    "path": "data/processed/bindingdb_valid.csv",
+    "sha256": "3a583e5de17f49b027f8fb84b33c4e547a9b33f65e3c645caaa013343e176ac5"
+  },
+  {
+    "path": "data/processed/bindingdb_test.csv",
+    "sha256": "24d72760d28e1154b812834dd46253e81575714a3045ce43a86462e85d36a367"
+  },
+  {
+    "path": "data/processed/biosnap_train.csv",
+    "sha256": "c3f715768114e11eb7515e27cae4114b387ab853780de8f7fe414e8655e30e9b"
+  },
+  {
+    "path": "data/processed/biosnap_valid.csv",
+    "sha256": "428d94bf120c74692c59c28249af2232a380519ec7a8de9e60a9e3db9ba642df"
+  },
+  {
+    "path": "data/processed/biosnap_test.csv",
+    "sha256": "9aedae5abed94513427e83374b9e0b6d13f586f275df6cdca9c49b4bab06f804"
+  },
+  {
+    "path": "data/processed/davis_train.csv",
+    "sha256": "9b62dd6338f5cd05b161e0247da97174c40e95b713d2034465a5891770f9436a"
+  },
+  {
+    "path": "data/processed/davis_valid.csv",
+    "sha256": "6f7618a752ef90345b7925922a974f579e88ae951528896ccfbc9bb644575d5d"
+  },
+  {
+    "path": "data/processed/davis_test.csv",
+    "sha256": "587d3fbe785092d1451bdb4928b0b392d91fcf58c4687335e2ed3f3758072e80"
+  },
+  {
+    "path": "data/processed/kiba_train.csv",
+    "sha256": "3c1d2f92ba0ae5b2121105a1056f2c40e7b34f37442e0be5ee9e093403e6ebc4"
+  },
+  {
+    "path": "data/processed/kiba_valid.csv",
+    "sha256": "335ae10c04749058e438ee9c547396286bea3bb5d0fa9d9816a6d53d945807be"
+  },
+  {
+    "path": "data/processed/kiba_test.csv",
+    "sha256": "737c8041e02df451adc418daca5941690c5c032063760fe6d71536f62145ae98"
+  },
+  {
+    "path": "data/raw/bindingdb/random/train_with_id.csv",
+    "sha256": "885a36b0a8044c5a6acaa99b1ed58916aa21fa2c97df012e4af62ffa489c6c07"
+  },
+  {
+    "path": "data/raw/bindingdb/random/val_with_id.csv",
+    "sha256": "eec9518dc1139f9a76c9a778ea822e6c691e00c6282ef6942a9ebe66af5b12e3"
+  },
+  {
+    "path": "data/raw/bindingdb/random/test_with_id.csv",
+    "sha256": "906c50011f0749871fb0d52da1fbb515492290a457ba11314c2ffa6e2ef4afc9"
+  },
+  {
+    "path": "data/raw/biosnap/random/train_with_id.csv",
+    "sha256": "8da412b9a9e251445d854e9a3b9b75ff548119cef9d51236e717b84d21b82dc1"
+  },
+  {
+    "path": "data/raw/biosnap/random/val_with_id.csv",
+    "sha256": "b670694a79cabbc819e95fa57364c0661117a7153c05a0be2deea508d0656e60"
+  },
+  {
+    "path": "data/raw/biosnap/random/test_with_id.csv",
+    "sha256": "65a5b631fe369fc6c52a1d6ea936dde119489cddbc39fee086e32dc78bfd3678"
+  }
+]

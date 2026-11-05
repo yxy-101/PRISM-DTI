@@ -1,0 +1,82 @@
+{
+  "protocol": "raw_priority_performance",
+  "historical_selection_verified": false,
+  "datasets": {
+    "bindingdb": {
+      "members": [
+        "configs/final/bindingdb/perf_bindingdb_residue_raw_priority_seed7.json",
+        "configs/final/bindingdb/perf_bindingdb_residue_multiview_raw_priority_seed7.json",
+        "configs/final/bindingdb/perf_bindingdb_residue_raw_priority_seed42.json",
+        "configs/final/bindingdb/perf_bindingdb_residue_multiview_raw_priority_seed42.json",
+        "configs/final/bindingdb/perf_bindingdb_residue_raw_priority_seed2024.json",
+        "configs/final/bindingdb/perf_bindingdb_residue_multiview_raw_priority_seed2024.json"
+      ],
+      "pretrain_configs": [],
+      "member_weights": [
+        0.18333333333333335,
+        0.15,
+        0.2666666666666668,
+        0.06666666666666654,
+        0.2833333333333334,
+        0.04999999999999997
+      ]
+    },
+    "biosnap": {
+      "members": [
+        "configs/final/biosnap/perf_biosnap_residue_raw_priority_seed7.json",
+        "configs/performance/biosnap/perf_biosnap_residue_multiview_raw_priority_seed7.json",
+        "configs/final/biosnap/perf_biosnap_residue_raw_priority_seed42.json",
+        "configs/performance/biosnap/perf_biosnap_residue_multiview_raw_priority_seed42.json",
+        "configs/final/biosnap/perf_biosnap_residue_raw_priority_seed2024.json",
+        "configs/performance/biosnap/perf_biosnap_residue_multiview_raw_priority_seed2024.json"
+      ],
+      "pretrain_configs": [],
+      "member_weights": [
+        0.1333333333333334,
+        0.19999999999999996,
+        0.19999999999999998,
+        0.13333333333333333,
+        0.18333333333333335,
+        0.15
+      ]
+    },
+    "davis": {
+      "members": [
+        "configs/final/davis/perf_davis_residue_raw_priority_seed7.json",
+        "configs/performance/davis/perf_davis_residue_multiview_raw_priority_seed7.json",
+        "configs/final/davis/perf_davis_residue_raw_priority_seed42.json",
+        "configs/performance/davis/perf_davis_residue_multiview_raw_priority_seed42.json",
+        "configs/final/davis/perf_davis_residue_raw_priority_seed2024.json",
+        "configs/performance/davis/perf_davis_residue_multiview_raw_priority_seed2024.json"
+      ],
+      "pretrain_configs": [],
+      "member_weights": [
+        0.18333333333333338,
+        0.14999999999999994,
+        0.21666666666666665,
+        0.1166666666666667,
+        0.15,
+        0.18333333333333335
+      ]
+    },
+    "kiba": {
+      "members": [
+        "configs/final/kiba/perf_kiba_residue_raw_priority_seed7.json",
+        "configs/final/kiba/perf_kiba_residue_multiview_raw_priority_seed7.json",
+        "configs/final/kiba/perf_kiba_residue_raw_priority_seed42.json",
+        "configs/final/kiba/perf_kiba_residue_multiview_raw_priority_seed42.json",
+        "configs/final/kiba/perf_kiba_residue_raw_priority_seed2024.json",
+        "configs/final/kiba/perf_kiba_residue_multiview_raw_priority_seed2024.json"
+      ],
+      "pretrain_configs": [],
+      "member_weights": [
+        0.18333333333333338,
+        0.14999999999999994,
+        0.2000000000000001,
+        0.13333333333333322,
+        0.23333333333333342,
+        0.09999999999999991
+      ]
+    }
+  }
+}

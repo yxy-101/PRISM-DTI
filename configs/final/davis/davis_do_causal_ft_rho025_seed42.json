@@ -1,0 +1,119 @@
+{
+  "seed": 42,
+  "experiment_name": "davis_do_causal_ft_rho025_seed42",
+  "checkpoint_path": "outputs/checkpoints/davis_do_causal_ft_rho025_seed42.pt",
+  "output_prediction_path": "outputs/predictions/davis_do_causal_ft_rho025_seed42_valid_predictions.csv",
+  "train_csv": "data/processed/davis_train.csv",
+  "valid_csv": "data/processed/davis_valid.csv",
+  "label_column": "label",
+  "label_policy": "pKd_from_Kd_nM_ge_6.0",
+  "sensitivity_label_column": "label_pkd7",
+  "label_policy_note": "pKd_from_kd_nM>=6.0 is a working primary threshold; pKd_from_kd_nM>=7.0 is retained for sensitivity only.",
+  "max_train_samples": 1000000,
+  "max_valid_samples": 1000000,
+  "batch_size": 128,
+  "epochs": 10,
+  "max_steps": 200000,
+  "protein_feature_path": "data/features/protein/davis_protein_prottrans_residue_fp16.pt",
+  "drug2d_feature_path": "data/features/drug/davis_drug_morgan2048.pt",
+  "drug3d_feature_path": "data/features/drug/davis_drug3d_evidti.pt",
+  "allow_dummy_features": false,
+  "allow_simple_drug_features": false,
+  "allow_simple_drug3d_features": false,
+  "use_causal_branch": true,
+  "use_randomization": true,
+  "use_cam": true,
+  "use_backdoor": true,
+  "module_switches": {
+    "backdoor": true,
+    "cam": true,
+    "causal_branch": true,
+    "target_randomization": true
+  },
+  "model": {
+    "protein_input_dim": 1024,
+    "protein_hidden_dim": 128,
+    "drug2d_input_dim": 2048,
+    "drug2d_hidden_dim": 128,
+    "drug3d_input_dim": 300,
+    "drug3d_hidden_dim": 128,
+    "fusion_hidden_dim": 256,
+    "evidential_hidden_dim": 128,
+    "num_classes": 2,
+    "dropout": 0.1,
+    "fusion_mode": "interaction"
+  },
+  "randomization": {
+    "enabled": true,
+    "mode": "delete",
+    "deletion_rate": 0.15,
+    "mutation_rate": 0.15,
+    "seed": 7
+  },
+  "debiasing": {
+    "enabled": true,
+    "use_cam": true,
+    "use_backdoor": true,
+    "confounder_dim": 1024,
+    "cam_hidden_dim": 128,
+    "cam_temperature": 1.0,
+    "backdoor_intervention_strength": 1.0,
+    "num_fallback_confounders": 1,
+    "cluster_centers_path": "data/confounder/davis_prottrans_residue/cluster_centers.pt",
+    "p_ci_path": "data/confounder/davis_prottrans_residue/p_ci.pt",
+    "sample_residual_backdoor_scale": 0.25,
+    "use_sample_residual_backdoor": false
+  },
+  "confounder": {
+    "confounder_dim": 1024,
+    "cluster_centers_path": "data/confounder/davis_prottrans_residue/cluster_centers.pt",
+    "p_ci_path": "data/confounder/davis_prottrans_residue/p_ci.pt"
+  },
+  "features": {
+    "protein_feature_path": "data/features/protein/davis_protein_prottrans_residue_fp16.pt",
+    "drug2d_feature_path": "data/features/drug/davis_drug_morgan2048.pt",
+    "drug3d_feature_path": "data/features/drug/davis_drug3d_evidti.pt",
+    "allow_simple_drug3d_features": false
+  },
+  "prior_balancing": {
+    "enabled": false
+  },
+  "reweighting": {
+    "enabled": false
+  },
+  "dummy_features": {
+    "protein_seq_len": 32,
+    "drug2d_seq_len": 24,
+    "drug3d_num_nodes": 16
+  },
+  "trainer": {
+    "learning_rate": 0.0001,
+    "device": "cuda",
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "init_checkpoint": "outputs/checkpoints/perf_davis_residue_raw_priority_seed42.pt",
+    "trainable_scope": "causal_only"
+  },
+  "optimizer": {
+    "name": "adamw",
+    "weight_decay": 0.0001
+  },
+  "scheduler": {
+    "name": "cosine",
+    "min_learning_rate": 1e-05
+  },
+  "performance_monitor": {
+    "enabled": true,
+    "metric": "valid_do_auc",
+    "mode": "max",
+    "save_best": true,
+    "interval_epochs": 1
+  },
+  "loss": {
+    "type": "nll",
+    "raw_loss_weight": 0.0,
+    "causal_loss_weight": 1.0,
+    "ranking_loss_weight": 0.08,
+    "ranking_temperature": 0.2
+  }
+}

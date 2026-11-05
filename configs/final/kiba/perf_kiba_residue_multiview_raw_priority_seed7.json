@@ -1,0 +1,124 @@
+{
+  "seed": 7,
+  "experiment_name": "perf_kiba_residue_multiview_raw_priority_seed7",
+  "checkpoint_path": "outputs/checkpoints/perf_kiba_residue_multiview_raw_priority_seed7.pt",
+  "output_prediction_path": "outputs/predictions/perf_kiba_residue_multiview_raw_priority_seed7_valid_predictions.csv",
+  "train_csv": "data/processed/kiba_train.csv",
+  "valid_csv": "data/processed/kiba_valid.csv",
+  "test_csv": "data/processed/kiba_test.csv",
+  "label_column": "label",
+  "label_policy": "kiba_score_ge_12.1",
+  "label_policy_note": "KIBA is binarized with the fixed pretraining threshold score >= 12.1 from the Stage 11A readiness audit.",
+  "max_train_samples": 1000000,
+  "max_valid_samples": 1000000,
+  "batch_size": 128,
+  "epochs": 30,
+  "max_steps": 200000,
+  "protein_feature_path": "data/features/protein/kiba_protein_prottrans_residue_fp16.pt",
+  "drug2d_feature_path": "data/features/drug/kiba_drug_multiview2048.pt",
+  "drug3d_feature_path": "data/features/drug/kiba_drug3d_evidti.pt",
+  "allow_dummy_features": false,
+  "allow_simple_drug_features": false,
+  "allow_simple_drug3d_features": false,
+  "use_causal_branch": true,
+  "use_randomization": true,
+  "use_cam": true,
+  "use_backdoor": true,
+  "module_switches": {
+    "backdoor": true,
+    "cam": true,
+    "causal_branch": true,
+    "target_randomization": true
+  },
+  "model": {
+    "protein_input_dim": 1024,
+    "protein_hidden_dim": 192,
+    "drug2d_input_dim": 2048,
+    "drug2d_hidden_dim": 256,
+    "drug3d_input_dim": 300,
+    "drug3d_hidden_dim": 128,
+    "fusion_hidden_dim": 384,
+    "evidential_hidden_dim": 192,
+    "num_classes": 2,
+    "dropout": 0.08,
+    "fusion_mode": "interaction",
+    "protein_num_conv_blocks": 3,
+    "drug2d_num_conv_blocks": 1,
+    "drug2d_conv_kernel_size": 3,
+    "drug2d_transformer_layers": 1,
+    "drug2d_transformer_heads": 8
+  },
+  "randomization": {
+    "enabled": true,
+    "mode": "delete",
+    "deletion_rate": 0.15,
+    "mutation_rate": 0.15,
+    "seed": 7
+  },
+  "debiasing": {
+    "enabled": true,
+    "use_cam": true,
+    "use_backdoor": true,
+    "confounder_dim": 1024,
+    "cam_hidden_dim": 192,
+    "cam_temperature": 1.0,
+    "num_fallback_confounders": 1,
+    "cluster_centers_path": "data/confounder/kiba_prottrans_residue/cluster_centers.pt",
+    "p_ci_path": "data/confounder/kiba_prottrans_residue/p_ci.pt"
+  },
+  "confounder": {
+    "confounder_dim": 1024,
+    "cluster_centers_path": "data/confounder/kiba_prottrans_residue/cluster_centers.pt",
+    "p_ci_path": "data/confounder/kiba_prottrans_residue/p_ci.pt"
+  },
+  "features": {
+    "protein_feature_path": "data/features/protein/kiba_protein_prottrans_residue_fp16.pt",
+    "drug2d_feature_path": "data/features/drug/kiba_drug_multiview2048.pt",
+    "drug3d_feature_path": "data/features/drug/kiba_drug3d_evidti.pt",
+    "allow_simple_drug3d_features": false,
+    "strict_feature_coverage": true
+  },
+  "loss": {
+    "type": "evidential",
+    "evidential_loss_type": "digamma",
+    "raw_loss_weight": 1.0,
+    "causal_loss_weight": 0.2,
+    "kl_weight": 0.001,
+    "kl_annealing_epochs": 10,
+    "uncertainty_regularizer_weight": 0.0,
+    "ranking_loss_weight": 0.1,
+    "ranking_temperature": 0.2
+  },
+  "prior_balancing": {
+    "enabled": false
+  },
+  "reweighting": {
+    "enabled": false
+  },
+  "dummy_features": {
+    "protein_seq_len": 32,
+    "drug2d_seq_len": 24,
+    "drug3d_num_nodes": 16
+  },
+  "trainer": {
+    "learning_rate": 0.0003,
+    "device": "cuda",
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0
+  },
+  "optimizer": {
+    "name": "adamw",
+    "weight_decay": 0.0001
+  },
+  "scheduler": {
+    "name": "cosine",
+    "min_learning_rate": 1e-05
+  },
+  "performance_monitor": {
+    "enabled": true,
+    "metric": "valid_raw_auc",
+    "mode": "max",
+    "save_best": true,
+    "interval_epochs": 1
+  }
+}

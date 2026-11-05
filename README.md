@@ -51,4 +51,12 @@ Default `--protocol branch-audit` supplies the calibration/risk analyses (6/3/3/
 
 Benchmark input CSVs are losslessly stored in `data/benchmark_inputs.tar.xz`; run `python scripts/unpack_data.py` before training. SHA256 checks verify the expanded files.
 
-Source distribution: download PRISM-DTI-github.zip from this repository, extract it, and enter the PRISM-DTI folder before running the commands above. The archive contains the source tree, fixed configs and benchmark input archive; trained weights and experimental outputs are excluded.
+## Repository layout
+
+- src/: model, data loading, losses, training and prediction implementations.
+- scripts/: main runnable commands and input unpacking.
+- configs/: fixed final and prerequisite configurations.
+- data/: benchmark source notes, checksums and compressed benchmark inputs; no predictions or experimental results.
+- environment.yaml and requirements.txt: reconstructed runtime dependencies.
+
+Run commands from the repository root after cloning. The benchmark input archive is data storage only, not a trained checkpoint or experimental result.

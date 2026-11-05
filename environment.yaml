@@ -1,0 +1,17 @@
+name: prism-dti
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.0.0+cu118
+      - numpy==1.24.4
+      - pandas==2.0.3
+      - scipy==1.10.1
+      - scikit-learn==1.3.2
+      - PyYAML==6.0.3
+      - rdkit==2024.3.5
+      - transformers==4.30.2
+      - sentencepiece==0.1.99
